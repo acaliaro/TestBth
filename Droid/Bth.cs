@@ -91,6 +91,8 @@ namespace TestBth.Droid
 									else
 										System.Diagnostics.Debug.WriteLine ("No data to read");
 
+									// A little stop to the uneverending thread...
+									System.Threading.Thread.Sleep (200);
 									if(!BthSocket.IsConnected){
 										System.Diagnostics.Debug.WriteLine ("BthSocket.IsConnected = false, Throw exception");
 										throw new Exception();
