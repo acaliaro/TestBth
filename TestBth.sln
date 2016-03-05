@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestBth", "TestBth\TestBth.csproj", "{56DD5976-CB11-492B-BB0F-37ECBB2B87D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestBth.Droid", "Droid\TestBth.Droid.csproj", "{FDE9C3D5-926F-4E79-B2AA-A893A20FD33D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestBthWear", "TestBthWear\TestBthWear.csproj", "{634EC075-82C4-4836-B2DB-7F185878D108}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{56DD5976-CB11-492B-BB0F-37ECBB2B87D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56DD5976-CB11-492B-BB0F-37ECBB2B87D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56DD5976-CB11-492B-BB0F-37ECBB2B87D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56DD5976-CB11-492B-BB0F-37ECBB2B87D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{634EC075-82C4-4836-B2DB-7F185878D108}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{634EC075-82C4-4836-B2DB-7F185878D108}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{634EC075-82C4-4836-B2DB-7F185878D108}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{634EC075-82C4-4836-B2DB-7F185878D108}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDE9C3D5-926F-4E79-B2AA-A893A20FD33D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDE9C3D5-926F-4E79-B2AA-A893A20FD33D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDE9C3D5-926F-4E79-B2AA-A893A20FD33D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDE9C3D5-926F-4E79-B2AA-A893A20FD33D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
