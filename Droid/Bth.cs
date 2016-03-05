@@ -25,68 +25,12 @@ namespace TestBth.Droid
 
 		#region IBth implementation
 
-//		public void Init(){
-//			if(adapter == null)
-//				System.Diagnostics.Debug.WriteLine("No Bluetooth adapter found.");
-//
-//			if(!adapter.IsEnabled)
-//				System.Diagnostics.Debug.WriteLine("Bluetooth adapter is not enabled."); 
-//
-//			BluetoothDevice device = null;
-//
-//			foreach (var bd in adapter.BondedDevices) {
-//				if (bd.Name.StartsWith ("QuickScan")) {
-//					device = bd;
-//					break;
-//				}
-//			}
-//
-//			if (device == null)
-//				System.Diagnostics.Debug.WriteLine ("Named device not found.");
-//			else {
-//				BthSocket = device.CreateRfcommSocketToServiceRecord (UUID.FromString ("00001101-0000-1000-8000-00805f9b34fb"));
-//			}
-//		}
-//
-//		private async  Task loop(){
-//			await BthSocket.ConnectAsync ();
-//
-//			if(BthSocket.IsConnected){
-//				System.Diagnostics.Debug.WriteLine("Connected!");
-//				var mReader = new InputStreamReader(BthSocket.InputStream);
-//				var buffer = new BufferedReader(mReader);
-//				try {
-//					while (!_ct.IsCancellationRequested){
-//
-//						string barcode = await buffer.ReadLineAsync();
-//						if(barcode.Length > 0){
-//							System.Diagnostics.Debug.WriteLine("Letto: " + barcode);
-//							Xamarin.Forms.MessagingCenter.Send<App, string> ((App)Xamarin.Forms.Application.Current, "Barcode", barcode);
-//						}
-//
-//						_ct.Token.ThrowIfCancellationRequested();
-//
-//					}
-//				}
-//				catch{}
-//
-//			}
-////			else
-////				Init ();
-//
-//		}
+		public void Start(){
 
-//		public void Cancel(){
-//			if (_ct != null)
-//				_ct.Cancel ();
-//		}
-
-		public void Loop2(){
-		
-			Task.Run ((Func<Task>)loop2);
+			Task.Run ((Func<Task>)loop);
 		}
 
-		private async Task loop2(){
+		private async Task loop(){
 			BluetoothDevice device = null;
 
 			_ct = new CancellationTokenSource ();
@@ -185,39 +129,7 @@ namespace TestBth.Droid
 				_ct.Cancel ();
 			}
 		}
-		/*
-		public void Loop()
-		{
 
-			Init ();
-			if (BthSocket != null) {
-
-				_ct = new CancellationTokenSource ();
-
-				Task.Run ((Func<Task>)loop); /*) => {
-					await BthSocket.ConnectAsync ();
-
-					if(BthSocket.IsConnected){
-						System.Diagnostics.Debug.WriteLine("Connected!");
-						var mReader = new InputStreamReader(BthSocket.InputStream);
-						var buffer = new BufferedReader(mReader);
-						while (true){
-
-							string barcode = await buffer.ReadLineAsync();
-							if(barcode.Length > 0){
-								System.Diagnostics.Debug.WriteLine("Letto: " + barcode);
-								Xamarin.Forms.MessagingCenter.Send<App, string> ((App)Xamarin.Forms.Application.Current, "Barcode", barcode);
-							}
-						}
-
-					}
-					else
-						Init ();
-
-				});
-			}
-		}
-			*/
 
 		#endregion
 	}

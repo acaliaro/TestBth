@@ -19,36 +19,16 @@ namespace TestBth
 			sl.Children.Add (_l);
 			cp.Content = sl;
 
-			//DependencyService.Get<IBth> ().Loop ();
-
 			MainPage = cp;
 			return;
-
-			// The root page of your application
-			MainPage = new ContentPage {
-				Content = new StackLayout {
-					VerticalOptions = LayoutOptions.Center,
-					Children = {
-						new Label {
-							XAlign = TextAlignment.Center,
-							Text = "Welcome to Xamarin Forms!"
-						}
-					}
-				}
-			};
-
 
 		}
 
 		protected override void OnStart ()
 		{
-			DependencyService.Get<IBth> ().Loop2 ();
+			DependencyService.Get<IBth> ().Start ();
 			// Handle when your app starts
-			MessagingCenter.Subscribe<App, string> (this, "Barcode", (sender, arg) => {
-				Device.BeginInvokeOnMainThread(()=>
-					_l.Text = arg);
-
-			});
+			MessagingCenter.Subscribe<App, string> (this, "Barcode", (sender, arg) => Device.BeginInvokeOnMainThread (() => _l.Text = arg));
 		}
 
 		protected override void OnSleep ()
@@ -59,7 +39,7 @@ namespace TestBth
 
 		protected override void OnResume ()
 		{
-			DependencyService.Get<IBth> ().Loop2 ();
+			DependencyService.Get<IBth> ().Start ();
 			// Handle when your app resumes
 		}
 	}
