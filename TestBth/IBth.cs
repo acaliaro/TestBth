@@ -4,7 +4,7 @@ namespace TestBth
 {
 	public interface IBth
 	{
-		void Start();
+		void Start(string name);
 		void Cancel();
 	}
 }

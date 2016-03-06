@@ -25,12 +25,16 @@ namespace TestBth.Droid
 
 		#region IBth implementation
 
-		public void Start(){
-
-			Task.Run ((Func<Task>)loop);
+		/// <summary>
+		/// Start the "reading" loop 
+		/// </summary>
+		/// <param name="name">Name of the paired bluetooth device (also a part of the name)</param>
+		public void Start(string name){
+			
+			Task.Run (async()=>loop(name));
 		}
 
-		private async Task loop(){
+		private async Task loop(string name){
 			BluetoothDevice device = null;
 
 			_ct = new CancellationTokenSource ();
@@ -52,7 +56,8 @@ namespace TestBth.Droid
 
 
 					foreach (var bd in adapter.BondedDevices) {
-						if (bd.Name.StartsWith ("QuickScan")) {
+						System.Diagnostics.Debug.WriteLine ("Paired devices found: " + bd.Name.ToUpper ());
+						if (bd.Name.ToUpper().IndexOf (name.ToUpper ()) >= 0) {
 							device = bd;
 							break;
 						}
@@ -125,6 +130,10 @@ namespace TestBth.Droid
 			System.Diagnostics.Debug.WriteLine ("Exit the external loop");
 		}
 
+		/// <summary>
+		/// Cancel the Reading loop
+		/// </summary>
+		/// <returns><c>true</c> if this instance cancel ; otherwise, <c>false</c>.</returns>
 		public void Cancel(){
 			if (_ct != null) {
 				System.Diagnostics.Debug.WriteLine ("Send a cancel to task!");

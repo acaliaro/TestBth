@@ -26,7 +26,7 @@ namespace TestBth
 
 		protected override void OnStart ()
 		{
-			DependencyService.Get<IBth> ().Start ();
+			DependencyService.Get<IBth> ().Start ("qu");
 			// Handle when your app starts
 			MessagingCenter.Subscribe<App, string> (this, "Barcode", (sender, arg) => Device.BeginInvokeOnMainThread (() => _l.Text = arg));
 		}
@@ -39,7 +39,7 @@ namespace TestBth
 
 		protected override void OnResume ()
 		{
-			DependencyService.Get<IBth> ().Start ();
+			DependencyService.Get<IBth> ().Start ("quick");
 			// Handle when your app resumes
 		}
 	}
