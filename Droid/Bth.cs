@@ -41,7 +41,8 @@ namespace TestBth.Droid
 			while (_ct.IsCancellationRequested == false) {
 			
 				try {
-				
+					System.Threading.Thread.Sleep (200);
+
 					adapter = BluetoothAdapter.DefaultAdapter;
 
 					if(adapter == null)

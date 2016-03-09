@@ -1,11 +1,10 @@
 ﻿<Properties StartupItem="Droid/TestBth.Droid.csproj" RefactoringSettings.EnableRefactorings="True">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus 10 (KitKat)" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Droid/Bth.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="TestBth/TestBth.cs">
     <Files>
       <File FileName="Droid/MainActivity.cs" Line="1" Column="1" />
       <File FileName="TestBth/IBth.cs" Line="1" Column="1" />
-      <File FileName="Droid/Bth.cs" Line="94" Column="56" />
-      <File FileName="TestBth/TestBth.cs" Line="43" Column="1" />
+      <File FileName="TestBth/TestBth.cs" Line="29" Column="45" />
       <File FileName="TestBthWear/MainActivity.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
