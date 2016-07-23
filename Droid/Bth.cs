@@ -67,13 +67,18 @@ namespace TestBth.Droid
 					if (device == null)
 						System.Diagnostics.Debug.WriteLine ("Named device not found.");
 					else {
-						BthSocket = device.CreateRfcommSocketToServiceRecord (UUID.FromString ("00001101-0000-1000-8000-00805f9b34fb"));
+						UUID uuid = UUID.FromString ("00001101-0000-1000-8000-00805f9b34fb");
+						if((int)Android.OS.Build.VERSION.SdkInt >= 10) // Gingerbread 2.3.3 2.3.4
+							BthSocket = device.CreateInsecureRfcommSocketToServiceRecord (uuid);
+						else
+							BthSocket = device.CreateRfcommSocketToServiceRecord (uuid);
 					
 						if (BthSocket != null) {
 
 
 							//Task.Run ((Func<Task>)loop); /*) => {
 							await BthSocket.ConnectAsync ();
+
 
 							if(BthSocket.IsConnected){
 								System.Diagnostics.Debug.WriteLine("Connected!");
