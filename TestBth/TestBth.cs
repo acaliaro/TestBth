@@ -24,9 +24,13 @@ namespace TestBth
 
 		}
 
+		const int SLEEP_TIME = 300;
+		const string STRING_SYMBOL = "CS";
+		const string STRING_DATALOGIC = "QUICK";
+
 		protected override void OnStart ()
 		{
-			DependencyService.Get<IBth> ().Start ("qu");
+			DependencyService.Get<IBth> ().Start (STRING_DATALOGIC,SLEEP_TIME, true);
 			// Handle when your app starts
 			MessagingCenter.Subscribe<App, string> (this, "Barcode", (sender, arg) => Device.BeginInvokeOnMainThread (() => _l.Text = arg));
 		}
@@ -39,7 +43,7 @@ namespace TestBth
 
 		protected override void OnResume ()
 		{
-			DependencyService.Get<IBth> ().Start ("quick");
+			DependencyService.Get<IBth> ().Start (STRING_DATALOGIC, SLEEP_TIME, true);
 			// Handle when your app resumes
 		}
 	}

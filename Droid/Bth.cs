@@ -29,19 +29,19 @@ namespace TestBth.Droid
 		/// Start the "reading" loop 
 		/// </summary>
 		/// <param name="name">Name of the paired bluetooth device (also a part of the name)</param>
-		public void Start(string name){
+		public void Start(string name, int sleepTime = 200, bool readAsCharArray = false){
 			
-			Task.Run (async()=>loop(name));
+			Task.Run (async()=>loop(name, sleepTime, readAsCharArray));
 		}
 
-		private async Task loop(string name){
+		private async Task loop(string name, int sleepTime, bool readAsCharArray){
 			BluetoothDevice device = null;
 
 			_ct = new CancellationTokenSource ();
 			while (_ct.IsCancellationRequested == false) {
 			
 				try {
-					System.Threading.Thread.Sleep (200);
+					System.Threading.Thread.Sleep (sleepTime);
 
 					adapter = BluetoothAdapter.DefaultAdapter;
 
@@ -87,10 +87,26 @@ namespace TestBth.Droid
 								//buffer.re
 								while (_ct.IsCancellationRequested == false){
 									if(buffer.Ready ()){
-//										string barcode =  buffer
+										//										string barcode =  buffer
 										//string barcode = buffer.
 
-										string barcode = await buffer.ReadLineAsync();
+										//string barcode = await buffer.ReadLineAsync();
+										char[] chr = new char[100];
+										//await buffer.ReadAsync(chr);
+										string barcode = "";
+										if (readAsCharArray) { 
+										
+											await buffer.ReadAsync(chr);
+											foreach (char c in chr) {
+
+												if (c == '\0')
+													break;
+												barcode += c;
+											}
+
+										}else
+											barcode = await buffer.ReadLineAsync();
+										
 										if(barcode.Length > 0){
 											System.Diagnostics.Debug.WriteLine("Letto: " + barcode);
 											Xamarin.Forms.MessagingCenter.Send<App, string> ((App)Xamarin.Forms.Application.Current, "Barcode", barcode);
@@ -103,7 +119,7 @@ namespace TestBth.Droid
 										System.Diagnostics.Debug.WriteLine ("No data to read");
 
 									// A little stop to the uneverending thread...
-									System.Threading.Thread.Sleep (200);
+									System.Threading.Thread.Sleep (sleepTime);
 									if(!BthSocket.IsConnected){
 										System.Diagnostics.Debug.WriteLine ("BthSocket.IsConnected = false, Throw exception");
 										throw new Exception();

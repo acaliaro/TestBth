@@ -1,18 +1,17 @@
-﻿<Properties StartupItem="Droid/TestBth.Droid.csproj" RefactoringSettings.EnableRefactorings="True">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.SKBUOVTGWC5SWS7D" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Droid/Bth.cs">
+﻿<Properties RefactoringSettings.EnableRefactorings="True" StartupConfiguration="{FDE9C3D5-926F-4E79-B2AA-A893A20FD33D}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="TestBth/TestBth.cs">
     <Files>
       <File FileName="Droid/MainActivity.cs" Line="1" Column="1" />
-      <File FileName="TestBth/IBth.cs" Line="1" Column="1" />
-      <File FileName="TestBth/TestBth.cs" Line="1" Column="1" />
+      <File FileName="TestBth/IBth.cs" Line="7" Column="62" />
+      <File FileName="TestBth/TestBth.cs" Line="46" Column="58" />
       <File FileName="TestBthWear/MainActivity.cs" Line="1" Column="1" />
-      <File FileName="Droid/Bth.cs" Line="71" Column="80" />
+      <File FileName="Droid/Bth.cs" Line="159" Column="24" />
     </Files>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/alessandrocaliaro/Projects/Test/TestBth/Droid/Bth.cs" line="71" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.TestBth.Droid PreferredExecutionTarget="Android.01575C2C0200901E" />
 </Properties>
