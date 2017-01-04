@@ -5,7 +5,8 @@ using System.Threading.Tasks;
 using Java.IO;
 using TestBth.Droid;
 using System.Threading;
-
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 [assembly: Xamarin.Forms.Dependency (typeof (Bth))]
 namespace TestBth.Droid
@@ -34,14 +35,16 @@ namespace TestBth.Droid
 			Task.Run (async()=>loop(name, sleepTime, readAsCharArray));
 		}
 
+
+
 		private async Task loop(string name, int sleepTime, bool readAsCharArray){
 			BluetoothDevice device = null;
-
+			//Thread.Sleep(1000);
 			_ct = new CancellationTokenSource ();
 			while (_ct.IsCancellationRequested == false) {
 			
 				try {
-					System.Threading.Thread.Sleep (sleepTime);
+					Thread.Sleep (sleepTime);
 
 					adapter = BluetoothAdapter.DefaultAdapter;
 
@@ -55,10 +58,13 @@ namespace TestBth.Droid
 					else
 						System.Diagnostics.Debug.WriteLine ("Adapter enabled!");
 
+					System.Diagnostics.Debug.WriteLine("Try to connect to " + name);
 
 					foreach (var bd in adapter.BondedDevices) {
 						System.Diagnostics.Debug.WriteLine ("Paired devices found: " + bd.Name.ToUpper ());
 						if (bd.Name.ToUpper().IndexOf (name.ToUpper ()) >= 0) {
+
+							System.Diagnostics.Debug.WriteLine("Found " + bd.Name + ". Try to connect with it!");
 							device = bd;
 							break;
 						}
@@ -148,7 +154,6 @@ namespace TestBth.Droid
 				}			
 			}
 
-
 			System.Diagnostics.Debug.WriteLine ("Exit the external loop");
 		}
 
@@ -161,6 +166,16 @@ namespace TestBth.Droid
 				System.Diagnostics.Debug.WriteLine ("Send a cancel to task!");
 				_ct.Cancel ();
 			}
+		}
+
+		public ObservableCollection<string> PairedDevices()
+		{
+			ObservableCollection<string> devices = new ObservableCollection<string>();
+
+			foreach (var bd in adapter.BondedDevices)
+				devices.Add(bd.Name);
+				
+			return devices;
 		}
 
 
