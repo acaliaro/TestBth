@@ -15,16 +15,31 @@ namespace TestBth
 		public ObservableCollection<string> ListOfBarcodes { get; set; } = new ObservableCollection<string>();
 		public string SelectedBthDevice { get; set; } = "";
 		bool _isConnected { get; set; } = false;
+		int _sleepTime { get; set; } = 250;
+
+		public String SleepTime
+		{
+			get { return _sleepTime.ToString(); }
+			set {
+				try
+				{
+					_sleepTime = int.Parse(value);
+				}
+				catch { }
+				}
+		}
 
 		private bool _isSelectedBthDevice { get {
 				if (string.IsNullOrEmpty(SelectedBthDevice)) return false; return true;
-			} }
+			} 
+		}
 
 		public bool IsConnectEnabled { get {
 				if (_isSelectedBthDevice == false)
 					return false;
 				return !_isConnected;
-			} }
+			} 
+		}
 		
 		public bool IsDisconnectEnabled { 
 			get {
@@ -56,7 +71,7 @@ namespace TestBth
 
 				// When the app "resume" I try to restart the connection with bluetooth
 				if(_isConnected)
-					 DependencyService.Get<IBth>().Start(SelectedBthDevice, 300, true);
+					 DependencyService.Get<IBth>().Start(SelectedBthDevice, _sleepTime, true);
 
 			});
 
@@ -64,7 +79,7 @@ namespace TestBth
 			this.ConnectCommand = new Command(() => {
 			
 				// Try to connect to a bth device
-				DependencyService.Get<IBth>().Start(SelectedBthDevice, 200, true);
+				DependencyService.Get<IBth>().Start(SelectedBthDevice, _sleepTime, true);
 				_isConnected = true;
 
 				// Receive data from bth device
