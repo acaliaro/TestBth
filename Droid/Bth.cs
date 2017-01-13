@@ -14,8 +14,6 @@ namespace TestBth.Droid
 	public class Bth : IBth
 	{
 
-		private BluetoothAdapter adapter = BluetoothAdapter.DefaultAdapter;
-		private BluetoothSocket BthSocket = null;
 		private CancellationTokenSource _ct { get; set; }
 
 		const int RequestResolveError = 1000;
@@ -39,6 +37,9 @@ namespace TestBth.Droid
 
 		private async Task loop(string name, int sleepTime, bool readAsCharArray){
 			BluetoothDevice device = null;
+			BluetoothAdapter adapter = BluetoothAdapter.DefaultAdapter;
+			BluetoothSocket BthSocket = null;
+
 			//Thread.Sleep(1000);
 			_ct = new CancellationTokenSource ();
 			while (_ct.IsCancellationRequested == false) {
@@ -170,6 +171,7 @@ namespace TestBth.Droid
 
 		public ObservableCollection<string> PairedDevices()
 		{
+			BluetoothAdapter adapter = BluetoothAdapter.DefaultAdapter;
 			ObservableCollection<string> devices = new ObservableCollection<string>();
 
 			foreach (var bd in adapter.BondedDevices)

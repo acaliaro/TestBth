@@ -1,9 +1,9 @@
 ﻿<Properties RefactoringSettings.EnableRefactorings="True" StartupConfiguration="{FDE9C3D5-926F-4E79-B2AA-A893A20FD33D}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="README.md">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Droid/Bth.cs">
     <Files>
       <File FileName="TestBth/MyPage.cs" Line="38" Column="4" />
       <File FileName="TestBth/MyPageViewModel.cs" Line="87" Column="6" />
-      <File FileName="Droid/Bth.cs" Line="42" Column="6" />
+      <File FileName="Droid/Bth.cs" Line="174" Column="63" />
       <File FileName="TestBth/IBth.cs" Line="9" Column="1" />
       <File FileName="TestBth/TestBth.cs" Line="12" Column="1" />
       <File FileName="TestBth/FodyWeavers.xml" Line="3" Column="20" />
@@ -12,7 +12,7 @@
       <File FileName="README.md" Line="20" Column="82" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
