@@ -1,21 +1,23 @@
 ﻿<Properties RefactoringSettings.EnableRefactorings="True" StartupConfiguration="{FDE9C3D5-926F-4E79-B2AA-A893A20FD33D}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="Droid/Bth.cs">
     <Files>
-      <File FileName="TestBth/MyPage.cs" Line="38" Column="4" />
-      <File FileName="TestBth/MyPageViewModel.cs" Line="87" Column="6" />
-      <File FileName="Droid/Bth.cs" Line="174" Column="63" />
+      <File FileName="TestBth/MyPage.cs" Line="4" Column="1" />
+      <File FileName="TestBth/MyPageViewModel.cs" Line="12" Column="48" />
+      <File FileName="Droid/Bth.cs" Line="87" Column="8" />
       <File FileName="TestBth/IBth.cs" Line="9" Column="1" />
       <File FileName="TestBth/TestBth.cs" Line="12" Column="1" />
       <File FileName="TestBth/FodyWeavers.xml" Line="3" Column="20" />
-      <File FileName="Droid/MainActivity.cs" Line="26" Column="33" />
+      <File FileName="Droid/MainActivity.cs" Line="26" Column="1" />
       <File FileName="TestBth/packages.config" Line="1" Column="1" />
       <File FileName="README.md" Line="20" Column="82" />
+      <File FileName="TestBthWear/MainActivity.cs" Line="10" Column="22" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.TestBth.Droid PreferredExecutionTarget="Android.16186523020148" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.TestBth.Droid PreferredExecutionTarget="Android.17004522513162" />
 </Properties>

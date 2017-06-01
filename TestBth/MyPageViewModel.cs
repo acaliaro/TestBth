@@ -4,11 +4,12 @@ using System.Windows.Input;
 using Xamarin.Forms;
 using PropertyChanged;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 namespace TestBth
 {
-	[ImplementPropertyChanged]
-	public class MyPageViewModel
+//	[ImplementPropertyChanged]
+	public class MyPageViewModel : INotifyPropertyChanged
 	{
 
 		public ObservableCollection<string> ListOfDevices { get; set; } = new ObservableCollection<string>();
@@ -112,5 +113,7 @@ namespace TestBth
 
 		public ICommand ConnectCommand { get; protected set;}
 		public ICommand DisconnectCommand { get; protected set;}
-	}
+
+        public event PropertyChangedEventHandler PropertyChanged;
+    }
 }

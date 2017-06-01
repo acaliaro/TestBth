@@ -1,7 +1,6 @@
 ﻿using System;
 
 using Xamarin.Forms;
-using FreshEssentials;
 
 namespace TestBth
 {
@@ -12,9 +11,9 @@ namespace TestBth
 
 			this.BindingContext = new MyPageViewModel();
 
-			BindablePicker pickerBluetoothDevices = new BindablePicker() { Title = "Select a bth device" };
-			pickerBluetoothDevices.SetBinding(BindablePicker.ItemsSourceProperty, "ListOfDevices");
-			pickerBluetoothDevices.SetBinding(BindablePicker.SelectedItemProperty, "SelectedBthDevice");
+			Picker pickerBluetoothDevices = new Picker() { Title = "Select a bth device" };
+			pickerBluetoothDevices.SetBinding(Picker.ItemsSourceProperty, "ListOfDevices");
+			pickerBluetoothDevices.SetBinding(Picker.SelectedItemProperty, "SelectedBthDevice");
 			pickerBluetoothDevices.SetBinding(VisualElement.IsEnabledProperty, "IsPickerEnabled");
 
 			Entry entrySleepTime = new Entry() {Keyboard = Keyboard.Numeric, Placeholder = "Sleep time" };

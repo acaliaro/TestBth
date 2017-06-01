@@ -144,7 +144,8 @@ namespace TestBth.Droid
 
 
 				}
-				catch{
+				catch(Exception ex){
+                    System.Diagnostics.Debug.WriteLine("EXCEPTION: " + ex.Message);
 				}
 
 				finally{
