@@ -34,8 +34,11 @@ namespace TestBth
 			lv.ItemTemplate = new DataTemplate(typeof(TextCell));
 			lv.ItemTemplate.SetBinding(TextCell.TextProperty, ".");
 
+            int topPadding = 0;
+            if (Device.RuntimePlatform == Device.iOS)
+                topPadding = 20;
 
-			StackLayout sl = new StackLayout { Children = { pickerBluetoothDevices, entrySleepTime, slButtons, lv } };
+			StackLayout sl = new StackLayout { Children = { pickerBluetoothDevices, entrySleepTime, slButtons, lv }, Padding = new Thickness(0,topPadding,0,0) };
 			Content = sl;
 		}
 
